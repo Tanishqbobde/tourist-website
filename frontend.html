@@ -1,0 +1,705 @@
+  <!DOCTYPE html>
+  <html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the World - Discover breathtaking travel destinations, book dream trips, and create unforgettable memories worldwide.">
+    <meta name="keywords" content="travel, destinations, vacation, tourism, adventure, world travel">
+    <title>Explore the World - Discover Your Next Adventure</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2. 3.1/dist/aos.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+      <div class="preloader-content">
+        <div class="plane-wrap"><span class="plane-icon">✈</span></div>
+        <h2 class="preloader-title">Explore the World</h2>
+        <div class="preloader-bar"><div class="preloader-fill"></div></div>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+          <i class="fas fa-globe-americas"></i>
+          <span>Explore the World</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#destinations" class="nav-link">Destinations</a></li>
+          <li><a href="#packages" class="nav-link">Packages</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#blog" class="nav-link">Blog</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <div class="lang-selector">
+            <select id="langSelect" onchange="changeLanguage(this.value)" aria-label="Select Language">
+              <option value="en">🌐 EN</option>
+              <option value="fr">🇫🇷 FR</option>
+              <option value="es">🇪🇸 ES</option>
+              <option value="de">🇩🇪 DE</option>
+              <option value="hi">🇮🇳 HI</option>
+            </select>
+          </div>
+          <button class="icon-btn" id="currencyBtn" onclick="openModal('currencyModal')" title="Currency Converter" aria-label="Currency Converter">
+            <i class="fas fa-coins"></i>
+          </button>
+          <button class="icon-btn" id="wishlistBtn" onclick="openModal('wishlistModal')" title="Wishlist" aria-label="Wishlist">
+            <i class="fas fa-heart"></i>
+            <span class="badge" id="wishlistCount">0</span>
+          </button>
+          <button class="icon-btn" id="themeToggleBtn" onclick="toggleTheme()" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">
+            <i class="fas fa-moon" id="themeIcon"></i>
+          </button>
+          <button class="btn-outline" id="loginBtn" onclick="openModal('loginModal')">Login</button>
+          <button class="btn-primary-nav" id="signupBtn" onclick="openModal('signupModal')">Sign Up</button>
+          <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Toggle Navigation">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+      <div class="hero-slideshow" id="heroSlideshow">
+        <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1920&q=85')"></div>
+        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1920&q=85')"></div>
+        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1920&q=85')"></div>
+        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1605130284535-11dd9eedc58a?auto=format&fit=crop&w=1920&q=85')"></div>
+        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1920&q=85')"></div>
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-tag" id="heroTag">Welcome to Adventure</p>
+        <h1 class="hero-title" id="heroTitle">Discover Your<br><span class="hero-highlight">Next Adventure</span></h1>
+        <p class="hero-desc" id="heroDesc">Explore breathtaking destinations, create unforgettable memories, and experience the world with expert guidance.</p>
+        <div class="hero-btns">
+          <a href="#destinations" class="btn-hero-primary" id="exploreBtn">
+            <span>Explore Now</span><i class="fas fa-compass"></i>
+          </a>
+          <a href="#packages" class="btn-hero-outline" id="bookBtn">
+            <span>Book a Trip</span><i class="fas fa-plane"></i>
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><span class="hs-num">50K+</span><span class="hs-label">Travelers</span></div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat"><span class="hs-num">120+</span><span class="hs-label">Destinations</span></div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat"><span class="hs-num">4.9★</span><span class="hs-label">Rating</span></div>
+        </div>
+      </div>
+      <div class="hero-controls">
+        <button class="hero-arrow hero-prev" onclick="prevSlide()" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+        <div class="hero-dots" id="heroDots"></div>
+        <button class="hero-arrow hero-next" onclick="nextSlide()" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      <div class="scroll-indicator">
+        <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+        <span>Scroll Down</span>
+      </div>
+    </section>
+
+    <!-- SEARCH SECTION -->
+    <section class="search-section">
+      <div class="search-card glass-card">
+        <div class="search-field">
+          <i class="fas fa-map-marker-alt"></i>
+          <input type="text" placeholder="Where do you want to go?" id="searchDest" aria-label="Destination">
+        </div>
+        <div class="search-divider"></div>
+        <div class="search-field">
+          <i class="fas fa-calendar-alt"></i>
+          <input type="date" id="searchDate" aria-label="Travel date">
+        </div>
+        <div class="search-divider"></div>
+        <div class="search-field">
+          <i class="fas fa-users"></i>
+          <select id="searchGuests" aria-label="Number of guests">
+            <option value="">Travelers</option>
+            <option value="1">1 Person</option>
+            <option value="2">2 People</option>
+            <option value="3-5">3-5 People</option>
+            <option value="6+">Group (6+)</option>
+          </select>
+        </div>
+        <button class="search-btn" id="searchSubmitBtn" onclick="searchDestination()">
+          <i class="fas fa-search"></i> Search
+        </button>
+      </div>
+    </section>
+
+    <!-- POPULAR DESTINATIONS -->
+    <section id="destinations" class="section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-tag">Top Picks</span>
+          <h2 class="section-title">Popular Destinations</h2>
+          <p class="section-sub">Handpicked wonders from around the globe, curated just for you</p>
+        </div>
+        <div class="filter-bar" data-aos="fade-up" data-aos-delay="100">
+          <button class="filter-btn active" id="filter-all" onclick="filterDest('all', this)">All</button>
+          <button class="filter-btn" id="filter-europe" onclick="filterDest('europe', this)">Europe</button>
+          <button class="filter-btn" id="filter-asia" onclick="filterDest('asia', this)">Asia</button>
+          <button class="filter-btn" id="filter-america" onclick="filterDest('america', this)">Americas</button>
+          <button class="filter-btn" id="filter-africa" onclick="filterDest('africa', this)">Africa</button>
+          <button class="filter-btn" id="filter-oceania" onclick="filterDest('oceania', this)">Oceania</button>
+        </div>
+        <div class="destinations-grid" id="destGrid"></div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="section why-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-tag">Our Promise</span>
+          <h2 class="section-title">Why Choose Us?</h2>
+          <p class="section-sub">We turn your travel dreams into extraordinary realities</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="feature-icon-wrap"><i class="fas fa-shield-alt"></i></div>
+            <h3>Safe & Secure</h3>
+            <p>Your safety is our top priority with verified partners and secure payment processing.</p>
+          </div>
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-icon-wrap"><i class="fas fa-tag"></i></div>
+            <h3>Best Price Guarantee</h3>
+            <p>Find a lower price anywhere? We'll match it and give you an extra 5% discount.</p>
+          </div>
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="feature-icon-wrap"><i class="fas fa-headset"></i></div>
+            <h3>24/7 Support</h3>
+            <p>Our dedicated travel experts are available around the clock for your assistance.</p>
+          </div>
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="feature-icon-wrap"><i class="fas fa-magic"></i></div>
+            <h3>Curated Experiences</h3>
+            <p>Every journey is crafted by experts to create truly unforgettable memories.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRAVEL PACKAGES -->
+    <section id="packages" class="section packages-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-tag">Travel Packages</span>
+          <h2 class="section-title">Choose Your Adventure</h2>
+          <p class="section-sub">Flexible packages designed for every type of traveler and budget</p>
+        </div>
+        <div class="packages-grid">
+          <div class="package-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="package-ribbon">Popular</div>
+            <div class="package-header">
+              <div class="pkg-icon"><i class="fas fa-backpack"></i></div>
+              <h3>Basic Explorer</h3>
+              <div class="package-price">
+                <span class="price-currency">₹</span>
+                <span class="price-amount">66,317</span>
+                <span class="price-unit">/person</span>
+              </div>
+              <div class="package-duration"><i class="fas fa-clock"></i> 5 Days / 4 Nights</div>
+            </div>
+            <ul class="package-list">
+              <li class="included"><i class="fas fa-check-circle"></i> Round-trip economy flights</li>
+              <li class="included"><i class="fas fa-check-circle"></i> 3-star hotel accommodation</li>
+              <li class="included"><i class="fas fa-check-circle"></i> Airport transfers</li>
+              <li class="included"><i class="fas fa-check-circle"></i> City tour guide</li>
+              <li class="excluded"><i class="fas fa-times-circle"></i> Meals included</li>
+              <li class="excluded"><i class="fas fa-times-circle"></i> Travel insurance</li>
+            </ul>
+            <button class="pkg-btn" id="basicPkgBtn" onclick="bookPackage('Basic Explorer', 66317)">Book Now <i class="fas fa-arrow-right"></i></button>
+          </div>
+          <div class="package-card featured" data-aos="fade-up" data-aos-delay="200">
+            <div class="package-ribbon gold">Best Value</div>
+            <div class="package-header">
+              <div class="pkg-icon gold-icon"><i class="fas fa-star"></i></div>
+              <h3>Premium Adventure</h3>
+              <div class="package-price">
+                <span class="price-currency">₹</span>
+                <span class="price-amount">124,417</span>
+                <span class="price-unit">/person</span>
+              </div>
+              <div class="package-duration"><i class="fas fa-clock"></i> 8 Days / 7 Nights</div>
+            </div>
+            <ul class="package-list">
+              <li class="included"><i class="fas fa-check-circle"></i> Round-trip flights (business)</li>
+              <li class="included"><i class="fas fa-check-circle"></i> 4-star hotel accommodation</li>
+              <li class="included"><i class="fas fa-check-circle"></i> Private airport transfers</li>
+              <li class="included"><i class="fas fa-check-circle"></i> Private tour guide</li>
+              <li class="included"><i class="fas fa-check-circle"></i> Breakfast & dinner</li>
+              <li class="included"><i class="fas fa-check-circle"></i> Travel insurance</li>
+            </ul>
+            <button class="pkg-btn featured-btn" id="premiumPkgBtn" onclick="bookPackage('Premium Adventure', 124417)">Book Now <i class="fas fa-arrow-right"></i></button>
+          </div>
+          <div class="package-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="package-ribbon luxury">Elite</div>
+            <div class="package-header">
+              <div class="pkg-icon luxury-icon"><i class="fas fa-crown"></i></div>
+              <h3>Luxury Escape</h3>
+              <div class="package-price">
+                <span class="price-currency">₹</span>
+                <span class="price-amount">248,917</span>
+                <span class="price-unit">/person</span>
+              </div>
+              <div class="package-duration"><i class="fas fa-clock"></i> 12 Days / 11 Nights</div>
+            </div>
+            <ul class="package-list">
+              <li class="included"><i class="fas fa-check-circle"></i> Business class flights</li>
+              <li class="included"><i class="fas fa-check-circle"></i> 5-star luxury resort</li>
+              <li class="included"><i class="fas fa-check-circle"></i> VIP limousine transfers</li>
+              <li class="included"><i class="fas fa-check-circle"></i> Personal travel concierge</li>
+              <li class="included"><i class="fas fa-check-circle"></i> All meals & beverages</li>
+              <li class="included"><i class="fas fa-check-circle"></i> Premium travel insurance</li>
+            </ul>
+            <button class="pkg-btn" id="luxuryPkgBtn" onclick="bookPackage('Luxury Escape', 248917)">Book Now <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item" data-aos="zoom-in">
+            <div class="stat-icon"><i class="fas fa-users"></i></div>
+            <div class="stat-num" data-target="50000">0</div>
+            <div class="stat-label">Happy Travelers</div>
+          </div>
+          <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+            <div class="stat-icon"><i class="fas fa-globe"></i></div>
+            <div class="stat-num" data-target="120">0</div>
+            <div class="stat-label">Destinations</div>
+          </div>
+          <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+            <div class="stat-icon"><i class="fas fa-award"></i></div>
+            <div class="stat-num" data-target="15">0</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+            <div class="stat-icon"><i class="fas fa-star"></i></div>
+            <div class="stat-num" data-target="98">0</div>
+            <div class="stat-label">% Satisfaction</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section testimonials-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-tag">Reviews</span>
+          <h2 class="section-title">What Travelers Say</h2>
+          <p class="section-sub">Real stories from real adventurers who explored the world with us</p>
+        </div>
+        <div class="testimonials-wrapper" data-aos="fade-up">
+          <div class="testimonials-track" id="testimonialTrack"></div>
+        </div>
+        <div class="testimonial-controls">
+          <button class="t-btn" id="tPrevBtn" onclick="prevTestimonial()" aria-label="Previous testimonial"><i class="fas fa-chevron-left"></i></button>
+          <div class="t-dots" id="testimonialDots"></div>
+          <button class="t-btn" id="tNextBtn" onclick="nextTestimonial()" aria-label="Next testimonial"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-tag">Visual Journey</span>
+          <h2 class="section-title">Travel Gallery</h2>
+          <p class="section-sub">Stunning moments captured from around the world</p>
+        </div>
+        <div class="gallery-grid" id="galleryGrid"></div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+      <div class="lightbox-overlay" onclick="closeLightbox()"></div>
+      <button class="lb-close" onclick="closeLightbox()" aria-label="Close lightbox"><i class="fas fa-times"></i></button>
+      <button class="lb-prev" onclick="prevLightbox()" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+      <div class="lb-img-wrap">
+        <img id="lightboxImg" src="" alt="Gallery image">
+        <p id="lightboxCaption" class="lb-caption"></p>
+      </div>
+      <button class="lb-next" onclick="nextLightbox()" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <!-- BLOG -->
+    <section id="blog" class="section blog-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-tag">Travel Stories</span>
+          <h2 class="section-title">Latest from the Blog</h2>
+          <p class="section-sub">Tips, guides, and inspiration for your next journey</p>
+        </div>
+        <div class="blog-grid" id="blogGrid"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-tag">Get in Touch</span>
+          <h2 class="section-title">Contact Us</h2>
+          <p class="section-sub">Plan your dream trip today — we're here to help every step of the way</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info-wrap" data-aos="fade-right">
+            <div class="contact-info-item">
+              <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div class="ci-text">
+                <h4>Our Address</h4>
+                <p>123 Adventure Lane, Travel Hub,<br>New York, NY 10001, USA</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="ci-icon"><i class="fas fa-phone-alt"></i></div>
+              <div class="ci-text">
+                <h4>Phone Number</h4>
+                <p>+1 (800) 123-4567<br>+1 (800) 987-6543</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+              <div class="ci-text">
+                <h4>Email Address</h4>
+                <p>info@exploretheworld.com<br>support@exploretheworld.com</p>
+              </div>
+            </div>
+            <div class="social-row">
+              <a href="#" class="soc-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="soc-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="soc-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="soc-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="#" class="soc-link" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+            </div>
+          </div>
+          <div class="contact-form-box" data-aos="fade-left">
+            <form class="contact-form" id="contactForm" onsubmit="submitContact(event)" novalidate>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <input type="text" id="cName" placeholder="Your Name" required autocomplete="name">
+                  <label for="cName">Full Name</label>
+                  <span class="form-err" id="cNameErr"></span>
+                </div>
+                <div class="form-group">
+                  <input type="email" id="cEmail" placeholder="Email Address" required autocomplete="email">
+                  <label for="cEmail">Email</label>
+                  <span class="form-err" id="cEmailErr"></span>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="tel" id="cPhone" placeholder="Phone Number" autocomplete="tel">
+                <label for="cPhone">Phone (optional)</label>
+              </div>
+              <div class="form-group">
+                <textarea id="cMessage" placeholder="Your Message" rows="5" required></textarea>
+                <label for="cMessage">Message</label>
+                <span class="form-err" id="cMsgErr"></span>
+              </div>
+              <button type="submit" class="submit-btn" id="contactSubmitBtn">
+                Send Message <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="map-wrap" data-aos="fade-up">
+          <iframe
+            title="Our Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830869428!2d-74.119763973046!3d40.69766374874431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1709800000000!5m2!1sen!2s"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-body">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-brand">
+              <a href="#" class="footer-logo"><i class="fas fa-globe-americas"></i> Explore the World</a>
+              <p>Your ultimate travel companion. Discover amazing destinations and create memories that last a lifetime.</p>
+              <div class="footer-socials">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+              </div>
+            </div>
+            <div class="footer-col">
+              <h4>Quick Links</h4>
+              <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#packages">Packages</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Company</h4>
+              <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Partner With Us</a></li>
+                <li><a href="#">FAQs</a></li>
+              </ul>
+            </div>
+            <div class="footer-col newsletter-col">
+              <h4>Newsletter</h4>
+              <p>Subscribe for travel inspiration and exclusive deals delivered to your inbox.</p>
+              <div class="nl-form">
+                <input type="email" placeholder="Your email address" id="nlEmail" aria-label="Newsletter email">
+                <button onclick="subscribeNewsletter()" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button>
+              </div>
+              <div class="footer-badges">
+                <div class="badge-item"><i class="fas fa-lock"></i> Secure Payments</div>
+                <div class="badge-item"><i class="fas fa-headset"></i> 24/7 Support</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <p>&copy; 2026 Explore the World. All rights reserved. Made with <i class="fas fa-heart"></i> for travelers worldwide.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- LOGIN MODAL -->
+    <div class="modal-overlay" id="loginModal" onclick="closeModalOutside(event,'loginModal')">
+      <div class="modal-box">
+        <button class="modal-x" onclick="closeModal('loginModal')" aria-label="Close"><i class="fas fa-times"></i></button>
+        <div class="modal-top">
+          <div class="modal-logo-icon"><i class="fas fa-globe-americas"></i></div>
+          <h2>Welcome Back!</h2>
+          <p>Login to access your travel dashboard</p>
+        </div>
+        <form onsubmit="handleLogin(event)" novalidate>
+          <div class="form-group">
+            <input type="email" id="loginEmail" placeholder="Email Address" required autocomplete="email">
+            <label for="loginEmail">Email</label>
+          </div>
+          <div class="form-group pass-group">
+            <input type="password" id="loginPass" placeholder="Password" required autocomplete="current-password">
+            <label for="loginPass">Password</label>
+            <button type="button" class="pass-toggle" onclick="togglePass('loginPass')"><i class="fas fa-eye"></i></button>
+          </div>
+          <a href="#" class="forgot-link">Forgot password?</a>
+          <button type="submit" class="modal-submit-btn" id="loginSubmitBtn">Login <i class="fas fa-sign-in-alt"></i></button>
+        </form>
+        <p class="modal-switch">Don't have an account? <button onclick="switchModals('loginModal','signupModal')">Sign Up</button></p>
+      </div>
+    </div>
+
+    <!-- SIGNUP MODAL -->
+    <div class="modal-overlay" id="signupModal" onclick="closeModalOutside(event,'signupModal')">
+      <div class="modal-box">
+        <button class="modal-x" onclick="closeModal('signupModal')" aria-label="Close"><i class="fas fa-times"></i></button>
+        <div class="modal-top">
+          <div class="modal-logo-icon"><i class="fas fa-globe-americas"></i></div>
+          <h2>Join Our Community</h2>
+          <p>Create your free travel account today</p>
+        </div>
+        <form onsubmit="handleSignup(event)" novalidate>
+          <div class="form-group">
+            <input type="text" id="signupName" placeholder="Full Name" required autocomplete="name">
+            <label for="signupName">Full Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" id="signupEmail" placeholder="Email Address" required autocomplete="email">
+            <label for="signupEmail">Email</label>
+          </div>
+          <div class="form-group pass-group">
+            <input type="password" id="signupPass" placeholder="Create Password" required autocomplete="new-password">
+            <label for="signupPass">Password</label>
+            <button type="button" class="pass-toggle" onclick="togglePass('signupPass')"><i class="fas fa-eye"></i></button>
+          </div>
+          <button type="submit" class="modal-submit-btn" id="signupSubmitBtn">Create Account <i class="fas fa-user-plus"></i></button>
+        </form>
+        <p class="modal-switch">Already have an account? <button onclick="switchModals('signupModal','loginModal')">Login</button></p>
+      </div>
+    </div>
+
+    <!-- CURRENCY MODAL -->
+    <div class="modal-overlay" id="currencyModal" onclick="closeModalOutside(event,'currencyModal')">
+      <div class="modal-box">
+        <button class="modal-x" onclick="closeModal('currencyModal')" aria-label="Close"><i class="fas fa-times"></i></button>
+        <div class="modal-top">
+          <div class="modal-logo-icon"><i class="fas fa-coins"></i></div>
+          <h2>Currency Converter</h2>
+          <p>Convert currencies for your travel budget</p>
+        </div>
+        <div class="currency-converter">
+          <div class="curr-row">
+            <div class="curr-field">
+              <label>Amount</label>
+              <input type="number" id="currAmount" value="100" min="0" oninput="convertCurrency()" aria-label="Amount to convert">
+            </div>
+            <div class="curr-field">
+              <label>From</label>
+              <select id="currFrom" onchange="convertCurrency()" aria-label="Convert from currency">
+                <option value="USD">🇺🇸 USD</option>
+                <option value="EUR">🇪🇺 EUR</option>
+                <option value="GBP">🇬🇧 GBP</option>
+                <option value="JPY">🇯🇵 JPY</option>
+                <option value="INR">🇮🇳 INR</option>
+                <option value="AUD">🇦🇺 AUD</option>
+                <option value="CAD">🇨🇦 CAD</option>
+                <option value="AED">🇦🇪 AED</option>
+                <option value="SGD">🇸🇬 SGD</option>
+              </select>
+            </div>
+          </div>
+          <button class="swap-btn" onclick="swapCurrency()" aria-label="Swap currencies"><i class="fas fa-exchange-alt"></i> Swap</button>
+          <div class="curr-row">
+            <div class="curr-field">
+              <label>Result</label>
+              <input type="number" id="currResult" readonly aria-label="Converted amount">
+            </div>
+            <div class="curr-field">
+              <label>To</label>
+              <select id="currTo" onchange="convertCurrency()" aria-label="Convert to currency">
+                <option value="EUR">🇪🇺 EUR</option>
+                <option value="USD">🇺🇸 USD</option>
+                <option value="GBP">🇬🇧 GBP</option>
+                <option value="JPY">🇯🇵 JPY</option>
+                <option value="INR">🇮🇳 INR</option>
+                <option value="AUD">🇦🇺 AUD</option>
+                <option value="CAD">🇨🇦 CAD</option>
+                <option value="AED">🇦🇪 AED</option>
+                <option value="SGD">🇸🇬 SGD</option>
+              </select>
+            </div>
+          </div>
+          <div class="curr-rate-display" id="currRateDisplay"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WISHLIST MODAL -->
+    <div class="modal-overlay" id="wishlistModal" onclick="closeModalOutside(event,'wishlistModal')">
+      <div class="modal-box">
+        <button class="modal-x" onclick="closeModal('wishlistModal')" aria-label="Close"><i class="fas fa-times"></i></button>
+        <div class="modal-top">
+          <div class="modal-logo-icon"><i class="fas fa-heart"></i></div>
+          <h2>My Wishlist</h2>
+          <p>Your dream destinations</p>
+        </div>
+        <div id="wishlistContent"></div>
+      </div>
+    </div>
+
+    <!-- BOOKING MODAL -->
+    <div class="modal-overlay" id="bookingModal" onclick="closeModalOutside(event,'bookingModal')">
+      <div class="modal-box">
+        <button class="modal-x" onclick="closeModal('bookingModal')" aria-label="Close"><i class="fas fa-times"></i></button>
+        <div class="modal-top">
+          <div class="modal-logo-icon"><i class="fas fa-plane"></i></div>
+          <h2 id="bookingTitle">Book Your Trip</h2>
+          <p id="bookingSubtitle">Fill in your details to proceed</p>
+        </div>
+        <form onsubmit="submitBooking(event)" novalidate>
+          <div class="form-row-2">
+            <div class="form-group">
+              <input type="text" id="bName" placeholder="Full Name" required>
+              <label for="bName">Name</label>
+            </div>
+            <div class="form-group">
+              <input type="email" id="bEmail" placeholder="Email" required>
+              <label for="bEmail">Email</label>
+            </div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group">
+              <input type="date" id="bDate" required>
+              <label for="bDate">Date of Travel</label>
+            </div>
+            <div class="form-group">
+              <select id="bGuests">
+                <option value="1">1 Person</option>
+                <option value="2">2 People</option>
+                <option value="3">3 People</option>
+                <option value="4">4 People</option>
+                <option value="5+">5+ People</option>
+              </select>
+              <label for="bGuests">Travelers</label>
+            </div>
+          </div>
+          <div class="booking-summary" id="bookingSummary"></div>
+          <button type="submit" class="modal-submit-btn" id="bookingSubmitBtn">Confirm Booking <i class="fas fa-check-circle"></i></button>
+        </form>
+      </div>
+    </div>
+
+    <!-- AI CHATBOT -->
+    <div class="chatbot" id="chatbot">
+      <div class="chatbot-header" onclick="toggleChatbot()" id="chatbotHeader">
+        <div class="chatbot-avatar-wrap">
+          <div class="chatbot-avatar"><i class="fas fa-robot"></i></div>
+          <div class="chatbot-online-dot"></div>
+        </div>
+        <div class="chatbot-info">
+          <div class="chatbot-name">AI Travel Assistant</div>
+          <div class="chatbot-status">Online — Ask me anything!</div>
+        </div>
+        <button class="chatbot-chevron" aria-label="Toggle chatbot"><i class="fas fa-chevron-up" id="chatChevron"></i></button>
+      </div>
+      <div class="chatbot-body" id="chatbotBody">
+        <div class="chat-messages" id="chatMessages">
+          <div class="chat-msg bot">
+            <div class="chat-avatar"><i class="fas fa-robot"></i></div>
+            <div class="chat-bubble">👋 Hi! I'm your AI Travel Assistant. I can help you discover amazing destinations, plan itineraries, and answer all your travel questions!</div>
+          </div>
+        </div>
+        <div class="chat-suggestions" id="chatSuggestions">
+          <button onclick="chatSend('Best summer destinations?')">☀️ Summer Destinations</button>
+          <button onclick="chatSend('Budget travel tips')">💰 Budget Tips</button>
+          <button onclick="chatSend('Visa requirements info')">📋 Visa Info</button>
+          <button onclick="chatSend('Best honeymoon spots?')">💑 Honeymoon</button>
+        </div>
+        <div class="chat-input-wrap">
+          <input type="text" id="chatInput" placeholder="Ask about travel..." onkeypress="chatKeyPress(event)" aria-label="Chat input">
+          <button class="chat-send-btn" onclick="chatSend()" aria-label="Send message"><i class="fas fa-paper-plane"></i></button>
+        </div>
+      </div>
+    </div>
+    <button class="chatbot-launcher" id="chatbotLauncher" onclick="launchChatbot()" aria-label="Open chat">
+      <i class="fas fa-robot"></i>
+      <span class="chat-launcher-badge">?</span>
+    </button>
+
+    <!-- SCROLL TO TOP -->
+    <button class="scroll-top" id="scrollTopBtn" onclick="scrollToTop()" aria-label="Scroll to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- TOAST -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="main.js"></script>
+  </body>
+  </html>
